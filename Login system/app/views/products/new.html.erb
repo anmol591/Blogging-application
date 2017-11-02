@@ -1,0 +1,22 @@
+<% if user_signed_in? %>
+<h1>Add a new product</h1>
+<%= form_for @product, url: {action: "create"} do |f| %>
+	<p><%= f.label :name %>
+		<%= f.text_field :name%>
+	</p>
+	<p>
+		<%= f.label :price%>
+		<%= f.text_field :price %>
+	</p>
+	<p>
+		<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+	</p>
+	<p>
+		<%= f.submit value='Add products' %>
+	</p>
+	<%end%>
+	<hr>
+	<p><%= link_to "Back", :action => "index" %></p>
+	<%end%>
+		
+		  

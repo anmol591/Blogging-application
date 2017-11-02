@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+<h1>Edit product details</h1>
+<%= form_for @product, url: {action: "update"} do |f|%>
+ 	<p><%= f.label :name %>
+		<%= f.text_field :name%>
+	</p>
+	<p>
+		<%= f.label :price%>
+		<%= f.text_field :price %>
+	</p>
+	<p>
+		<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+	</p>
+	<p>
+		<%= f.submit value='Update product' %>
+	</p>
+	<%end%>
+	<hr>
+	<%= link_to "Back", :action => "index" %>
+<%end%>

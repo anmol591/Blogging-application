@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+<% if @products.blank? %>
+	<p>There are no products currently in the system</p>
+	<% if can? :new, Product%>
+	<p><%= link_to "Add new product", :action => "new" %></p>
+	<%end%>
+	<%else%>
+	
+
+	<%Product.all.each do |f|%>
+	<P>
+		
+		<%= f.name %>&nbsp;&nbsp;&nbsp;
+		<% if can? :update, f %>
+		<%= link_to "Edit", :action => "edit", :id=>f.id %>
+		<%end%>
+		&nbsp;&nbsp;&nbsp;<% if can? :destroy,f %><%= link_to 'Delete', f, method: :delete %><%end%>
+		&nbsp;&nbsp;&nbsp;<% if can? :show,f %><%= link_to "Show Details", :action => "show", :id=>f.id %><%end%>
+	</P>
+	 <%end%>
+	<hr>
+	<% if can? :new, Product %>
+	<%= link_to "Add a new product", :action => "new" %>
+	<%end%>
+    <%end%>
+
+
+<%end%>

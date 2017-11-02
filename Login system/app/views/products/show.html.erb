@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<h1>Product details</h1>
+<p><strong>Product name:&nbsp;</strong><%= @product.name %></p>
+<p><strong>Product price:&nbsp;</strong><%= @product.price %></p>
+<p><strong>Product category:&nbsp;</strong><%= @product.category.name %></p>
+<p><strong>Product created date:&nbsp;</strong><%= @product.created_at.strftime("%A %d %B,%Y %I:%M %p") %></p>
+<p><strong>Product updated date:&nbsp;</strong><%= @product.updated_at.strftime("%A %d %B,%Y %I:%M %p") %></p>
+<hr>
+<%= link_to "Back", :action => "index" %>
+<%end%>

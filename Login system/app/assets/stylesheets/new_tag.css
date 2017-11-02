@@ -1,0 +1,18 @@
+.error{
+	color:#e91640;
+}
+.notice{
+	color:#8db14e;
+	background-color: #d1e0b8;
+}
+.alert{
+	color:#e63900;
+	background-color: #ff9f80;
+}
+hr{
+	
+	    background-color: dimgrey !important;
+    border: 2px dimgrey !important;
+    height: 2px !important;
+    width: 100%;
+}
